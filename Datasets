@@ -1,0 +1,191 @@
+-- -- Вставка пользователей
+-- INSERT INTO users (id, first_name, last_name, email, password, created_at, updated_at) VALUES
+-- (1, 'John', 'Doe', 'john.doe@example.com', 'password123', '2023-05-10', '2024-02-23'),
+-- (2, 'Alice', 'Smith', 'alice.smith@example.com', 'password123', '2023-07-12', '2024-02-23'),
+-- (3, 'Michael', 'Brown', 'michael.brown@example.com', 'password123', '2023-08-14', '2024-02-23'),
+-- (4, 'Emily', 'Johnson', 'emily.johnson@example.com', 'password123', '2023-09-22', '2024-02-23'),
+-- (5, 'David', 'Wilson', 'david.wilson@example.com', 'password123', '2023-06-18', '2024-02-23'),
+-- (6, 'Sarah', 'Taylor', 'sarah.taylor@example.com', 'password123', '2023-11-30', '2024-02-23'),
+-- (7, 'James', 'Anderson', 'james.anderson@example.com', 'password123', '2023-10-05', '2024-02-23'),
+-- (8, 'Laura', 'Martinez', 'laura.martinez@example.com', 'password123', '2023-12-20', '2024-02-23'),
+-- (9, 'Robert', 'Thomas', 'robert.thomas@example.com', 'password123', '2023-03-14', '2024-02-23'),
+-- (10, 'Sophia', 'Harris', 'sophia.harris@example.com', 'password123', '2023-04-27', '2024-02-23');
+--
+-- -- Вставка ролей
+-- INSERT INTO roles (id, role_name) VALUES
+-- (1, 'student'),
+-- (2, 'teacher'),
+-- (3, 'admin'),
+-- (4, 'analyst'),
+-- (5, 'moderator');
+--
+-- -- Вставка связей пользователей и ролей
+-- INSERT INTO userRoles (user_id, role_id) VALUES
+-- (1, 2),
+-- (2, 1),
+-- (3, 3),
+-- (4, 4),
+-- (5, 5),
+-- (6, 2),
+-- (7, 1),
+-- (8, 3),
+-- (9, 4),
+-- (10, 5);
+
+-- -- Вставка данных в таблицу categories
+-- INSERT INTO categories (id, name, description) VALUES
+-- (1, 'Data Science', 'Category for Data Science courses'),
+-- (2, 'Machine Learning', 'Category for Machine Learning courses'),
+-- (3, 'Web Development', 'Category for Web Development courses'),
+-- (4, 'Cybersecurity', 'Category for Cybersecurity courses'),
+-- (5, 'Cloud Computing', 'Category for Cloud Computing courses');
+--
+-- -- Вставка данных в таблицу courses
+-- INSERT INTO courses (id, title, description, instructor_id, created_at, updated_at) VALUES
+-- (1, 'Data Science Fundamentals', 'Comprehensive introduction to Data Science', 2, '2023-06-15', '2024-02-23'),
+-- (2, 'Machine Learning Basics', 'Understanding machine learning models', 4, '2023-09-10', '2024-02-23'),
+-- (3, 'Web Development', 'Building web applications using modern frameworks', 6, '2023-07-22', '2024-02-23'),
+-- (4, 'Cybersecurity Essentials', 'Fundamentals of digital security', 8, '2023-05-17', '2024-02-23'),
+-- (5, 'Cloud Computing', 'Introduction to cloud platforms and architecture', 10, '2023-10-05', '2024-02-23');
+--
+-- -- Вставка данных в таблицу courseCategories
+-- INSERT INTO courseCategories (course_id, category_id) VALUES
+-- (1, 1), (2, 2), (3, 3), (4, 4), (5, 5);
+--
+-- -- Вставка данных в таблицу modules
+-- INSERT INTO modules (id, course_id, title, description, order_index) VALUES
+-- (1, 1, 'Module 1', 'Introduction to Data Science', '1'),
+-- (2, 2, 'Module 1', 'Introduction to ML', '1'),
+-- (3, 3, 'Module 1', 'Basics of Web Development', '1'),
+-- (4, 4, 'Module 1', 'Cybersecurity Overview', '1'),
+-- (5, 5, 'Module 1', 'Cloud Basics', '1');
+--
+-- -- Вставка данных в таблицу lessons
+-- INSERT INTO lessons (id, module_id, title, content, video_url, order_index) VALUES
+-- (1, 1, 'Lesson 1', 'Introduction to Python', 'https://example.com/video1', '1'),
+-- (2, 2, 'Lesson 1', 'Supervised Learning', 'https://example.com/video2', '1'),
+-- (3, 3, 'Lesson 1', 'HTML & CSS Basics', 'https://example.com/video3', '1'),
+-- (4, 4, 'Lesson 1', 'Types of Cyber Attacks', 'https://example.com/video4', '1'),
+-- (5, 5, 'Lesson 1', 'Cloud Deployment Models', 'https://example.com/video5', '1');
+--
+-- -- Вставка данных в таблицу enrollments
+-- INSERT INTO enrollments (id, user_id, course_id, enrolled_at) VALUES
+-- (1, 1, 1, '2023-06-20'),
+-- (2, 2, 2, '2023-07-15'),
+-- (3, 3, 3, '2023-08-10'),
+-- (4, 4, 4, '2023-09-05'),
+-- (5, 5, 5, '2023-10-01');
+--
+-- -- Вставка данных в таблицу quizzes
+-- INSERT INTO quizzes (id, course_id, title, description, created_at) VALUES
+-- (1, 1, 'Data Science Quiz', 'Basic concepts of Data Science', '2024-02-23'),
+-- (2, 2, 'Machine Learning Quiz', 'ML fundamentals', '2024-02-23'),
+-- (3, 3, 'Web Development Quiz', 'HTML, CSS, JS questions', '2024-02-23');
+--
+-- -- Вставка данных в таблицу quizQuestions
+-- INSERT INTO quizQuestions (id, quiz_id, question_text, question_type) VALUES
+-- (1, 1, 'What is Data Science?', 'multiple choice'),
+-- (2, 2, 'What is Supervised Learning?', 'multiple choice'),
+-- (3, 3, 'What does HTML stand for?', 'multiple choice');
+--
+-- -- Вставка данных в таблицу quizOptions
+-- INSERT INTO quizOptions (id, question_id, option_text, is_correct) VALUES
+-- (1, 1, 'A study of data', TRUE),
+-- (2, 2, 'A type of ML where the model is trained with labeled data', TRUE),
+-- (3, 3, 'HyperText Markup Language', TRUE);
+
+-- Вставка данных в таблицу courseFeedback
+-- INSERT INTO courseFeedback (id, course_id, user_id, rating, comment, created_ad) VALUES
+-- (1, 1, 1, 5, 'Great course!', '2024-02-23'),
+-- (2, 2, 2, 4, 'Very informative.', '2024-02-23'),
+-- (3, 3, 3, 3, 'Could be better.', '2024-02-23');
+
+-- -- Вставка данных в таблицу activityLog
+-- INSERT INTO activityLog (id, user_id, action_type, description, created_at) VALUES
+-- (1, 1, 'Login', 'User logged in', '2024-02-23'),
+-- (2, 2, 'Course Enrolled', 'User enrolled in a course', '2024-02-23');
+--
+-- -- Вставка данных в таблицу assignments
+-- INSERT INTO assignments (id, course_id, title, description, due_date) VALUES
+-- (1, 1, 'Assignment 1', 'Data Science Task', '2024-03-01');
+--
+-- -- Вставка данных в таблицу assignmentSubmissions
+-- INSERT INTO assignmentSubmissions (id, assignment_id, user_id, submission_data, submitted_at, grade) VALUES
+-- (1, 1, 1, 'Submitted work link', '2024-02-28', 95);
+--
+-- -- Вставка данных в таблицу badges
+-- INSERT INTO badges (id, name, description, icon_url) VALUES
+-- (1, 'Data Scientist', 'Awarded for completing the Data Science course', 'https://example.com/badge1.png');
+--
+-- -- Вставка данных в таблицу certificates
+-- INSERT INTO certificates (id, user_id, course_id, certificate_url, issued_ad) VALUES
+-- (1, 1, 1, 'https://example.com/certificate1', '2024-03-01');
+
+-- -- Вставка данных в таблицу forums
+-- INSERT INTO forum (id, course_id, title, created_at) VALUES
+-- (1, 1, 'General Discussion', '2024-02-23');
+--
+-- -- Вставка данных в таблицу forumPosts
+-- INSERT INTO forumPosts (id, forum_id, user_id, content, posted_at) VALUES
+-- (1, 1, 1, 'This course is amazing!', '2024-02-23');
+
+-- -- Вставка данных в таблицу comments
+-- INSERT INTO comments (id, post_id, user_id, content, posted_ad) VALUES
+-- (1, 1, 2, 'I agree, it is very informative!', '2024-02-23');
+--
+-- -- Вставка данных в таблицу messages
+-- INSERT INTO messages (id, sender_id, receiver_id, message_text, sent_at) VALUES
+-- (1, 1, 2, 'Hey, are you enjoying the course?', '2024-02-23');
+--
+-- -- Вставка данных в таблицу leaderboards
+-- INSERT INTO leaderboards (id, course_id, user_id, score, ranking_date) VALUES
+-- (1, 1, 1, 95, '2024-02-23');
+--
+-- -- Вставка данных в таблицу payments
+-- INSERT INTO payments (id, user_id, course_id, amount, payment_date, payment_method) VALUES
+-- (1, 1, 1, 200, '2024-02-23', 'Credit Card');
+--
+-- -- Вставка данных в таблицу profiles
+-- INSERT INTO profiles (user_id, bio, contact_number, avatar) VALUES
+-- (1, 'Data Scientist and ML Engineer', '+1234567890', 'https://example.com/avatar1.png');
+
+-- -- Вставка данных в таблицу progress
+-- INSERT INTO progress (id, enrollment_id, lesson_id, completed, completed_at) VALUES
+-- (1, 1, 1, TRUE, '2024-02-23'),
+-- (2, 2, 2, TRUE, '2024-02-23'),
+-- (3, 3, 3, FALSE, NULL);
+-- 
+-- -- Вставка данных в таблицу quizResults
+-- INSERT INTO quizResults (id, quiz_id, user_id, score, taken_at) VALUES
+-- (1, 1, 1, 85, '2024-02-23'),
+-- (2, 2, 2, 90, '2024-02-23'),
+-- (3, 3, 3, 75, '2024-02-23');
+-- 
+-- -- Вставка данных в таблицу resources
+-- INSERT INTO resources (id, lesson_id, resource_type, resource_url, description) VALUES
+-- (1, 1, 'PDF', 'https://example.com/resource1.pdf', 'Lecture notes'),
+-- (2, 2, 'Video', 'https://example.com/resource2.mp4', 'Supplementary video'),
+-- (3, 3, 'Article', 'https://example.com/resource3.html', 'External reading material');
+-- 
+-- -- Вставка данных в таблицу surveys
+-- INSERT INTO surveys (id, course_id, title, description, created_at) VALUES
+-- (1, 1, 'Course Feedback Survey', 'Survey about Data Science course', '2024-02-23'),
+-- (2, 2, 'Machine Learning Review', 'Student opinions on ML course', '2024-02-23');
+-- 
+-- -- Вставка данных в таблицу surveyResponses
+-- INSERT INTO surveyResponses (id, survey_id, user_id, response, submitted_at) VALUES
+-- (1, 1, 1, 'Great course, very informative!', '2024-02-23'),
+-- (2, 1, 2, 'I enjoyed the lectures and assignments.', '2024-02-23'),
+-- (3, 2, 3, 'More practical exercises would be great.', '2024-02-23');
+-- 
+-- -- Вставка данных в таблицу suSolutions
+-- INSERT INTO suSolutions (id, comment) VALUES
+-- (1, 'Solution to assignment 1'),
+-- (2, 'Detailed explanation of problem 2'),
+-- (3, 'Alternative approach to solving question 3');
+-- 
+-- -- Вставка данных в таблицу userBadges
+-- INSERT INTO userBadges (id, user_id, badge_id, awarded_at) VALUES
+-- (1, 1, 1, '2024-02-23'),
+-- (2, 2, 2, '2024-02-23'),
+-- (3, 3, 3, '2024-02-23');
